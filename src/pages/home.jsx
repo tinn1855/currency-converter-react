@@ -1,14 +1,18 @@
 import { ConvertCurrencies } from "../components/convert-currencies";
 import { Header } from "../components/header";
 import { Pagination } from "../components/pagination";
+import { PopularCurrencies } from "../components/popular-currencies";
 import { SearchForm } from "../components/search-form";
 import { TableCurrencies } from "../components/table-currencies";
 
 export function Home() {
   return (
-    <div>
+    <div className="container">
       <Header />
-      <ConvertCurrencies />
+      <div className="convert-section">
+        <ConvertCurrencies />
+        <PopularCurrencies />
+      </div>
       <SearchForm />
       <TableCurrencies />
       <Pagination />
