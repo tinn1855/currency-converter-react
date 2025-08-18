@@ -1,4 +1,8 @@
+import { UseGetCurrencies } from "../../hooks/use-get-currencies";
+
 export function ConvertCurrencies() {
+  const { data } = UseGetCurrencies();
+
   return (
     <section className="convert-card">
       <h2>Currencies Converter</h2>
@@ -17,9 +21,12 @@ export function ConvertCurrencies() {
           <div className="select-option">
             <label htmlFor="from-currency">From:</label>
             <select name="from-currency" id="from-currency">
-              <option value="">USD</option>
-              <option value="">EUR</option>
-              <option value="">GBP</option>
+              {data &&
+                Object.entries(data).map(([code, rate]) => (
+                  <option key={code} value={code}>
+                    {code}
+                  </option>
+                ))}
             </select>
           </div>
           <button className="btn btn-primary " id="btn-swap">
@@ -28,9 +35,12 @@ export function ConvertCurrencies() {
           <div className="select-option">
             <label htmlFor="to-currency">To:</label>
             <select name="to-currency" id="to-currency">
-              <option value="">USD</option>
-              <option value="">EUR</option>
-              <option value="">GBP</option>
+              {data &&
+                Object.entries(data).map(([code, rate]) => (
+                  <option key={code} value={code}>
+                    {code}
+                  </option>
+                ))}
             </select>
           </div>
         </div>
