@@ -78,9 +78,8 @@ li {
   background-color: var(--secondary-color);
 }
 
-.btn:active {
-  background-color: var(--primary-color);
-  color: white;
+.active {
+  background-color: var(--secondary-color);
 }
 
 .btn-primary {
@@ -186,12 +185,38 @@ li {
   width: 30%;
   padding: 10px;
   margin: 20px 0;
+  position: relative;
 }
 
 .search-form input {
   border: none;
   outline: none;
   flex: 1;
+}
+
+.clear-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  transition: color 0.2s ease;
+}
+
+.clear-btn:hover {
+  color: var(--secondary-color);
+}
+
+.search-results-info {
+  margin: 10px 0;
+  color: var(--text-color);
+  font-style: italic;
+}
+
+.no-results {
+  text-align: center;
+  color: var(--text-color);
+  font-style: italic;
+  padding: 20px;
 }
 
 .table-description {
@@ -239,4 +264,10 @@ li {
 .loading-message {
   font-weight: 500;
   animation: all 0.5s ease-in-out infinite;
+}
+
+.currency-name {
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
