@@ -1,7 +1,7 @@
-import { UseGetCurrencies } from "../../hooks/use-get-currencies";
+import { useGetCurrencies } from "../../hooks/use-get-currencies";
 
 export function TableCurrencies() {
-  const { data, loading, error } = UseGetCurrencies();
+  const { data, loading, error } = useGetCurrencies();
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;

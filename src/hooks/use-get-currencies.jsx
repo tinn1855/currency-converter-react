@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { API_KEY, BASE_URL } from "../constant/baseURL";
 
-export function UseGetCurrencies(baseCurrency = "USD") {
+export function useGetCurrencies(baseCurrency = "USD") {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);

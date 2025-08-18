@@ -230,3 +230,13 @@ li {
   flex-direction: column;
   gap: 10px;
 }
+
+.error-message {
+  font-weight: 500;
+  color: red;
+}
+
+.loading-message {
+  font-weight: 500;
+  animation: all 0.5s ease-in-out infinite;
+}
