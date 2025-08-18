@@ -1,4 +1,11 @@
+import { UseGetCurrencies } from "../../hooks/use-get-currencies";
+
 export function TableCurrencies() {
+  const { data, loading, error } = UseGetCurrencies();
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
+
   return (
     <>
       <table>
@@ -13,14 +20,16 @@ export function TableCurrencies() {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>USD</td>
-            <td>United States Dollar</td>
-            <td>1.00</td>
-            <td>1.00</td>
-            <td>1.00</td>
-          </tr>
+          {Object.entries(data).map(([currencyCode, rate], index) => (
+            <tr key={currencyCode}>
+              <td>{index + 1}</td>
+              <td>{currencyCode}</td>
+              <td>{currencyCode}</td>
+              <td>-</td>
+              <td>{rate}</td>
+              <td>-</td>
+            </tr>
+          ))}
         </tbody>
       </table>
       <p className="table-description">
