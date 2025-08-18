@@ -1,6 +1,5 @@
 import { ConvertCurrencies } from "../components/convert-currencies";
 import { Header } from "../components/header";
-import { Pagination } from "../components/pagination";
 import { PopularCurrencies } from "../components/popular-currencies";
 import { SearchForm } from "../components/search-form";
 import { TableCurrencies } from "../components/table-currencies";
@@ -15,7 +14,6 @@ export function Home() {
       </div>
       <SearchForm />
       <TableCurrencies />
-      <Pagination />
     </div>
   );
 }
