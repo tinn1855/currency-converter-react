@@ -1,3 +1,10 @@
 export function SearchForm() {
-  return <section>Search Form</section>;
+  return (
+    <section className="search-section">
+      <div className="search-form">
+        <i className="fa-solid fa-magnifying-glass"></i>
+        <input type="text" placeholder="Search..." />
+      </div>
+    </section>
+  );
 }
