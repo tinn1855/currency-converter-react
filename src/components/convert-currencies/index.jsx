@@ -74,11 +74,7 @@ export function ConvertCurrencies() {
             </select>
           </div>
 
-          <button
-            className="btn btn-primary"
-            id="btn-swap"
-            onClick={handleSwap}
-          >
+          <button className="btn btn-swap" id="btn-swap" onClick={handleSwap}>
             <i className="fa-solid fa-arrow-right-arrow-left"></i>
           </button>
 
