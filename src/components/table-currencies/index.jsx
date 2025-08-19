@@ -14,7 +14,6 @@ export function TableCurrencies({ searchQuery }) {
   const [currentPage, setCurrentPage] = useState(pageParam);
   const rowsPerPage = 20;
 
-  // Lọc dữ liệu theo từ khóa tìm kiếm
   const filteredEntries = data
     ? Object.entries(data).filter(([currencyCode]) => {
         if (!searchQuery) return true;
@@ -31,14 +30,6 @@ export function TableCurrencies({ searchQuery }) {
 
   const totalPages = Math.ceil(filteredEntries.length / rowsPerPage);
 
-  // Reset về trang 1 khi tìm kiếm
-  useEffect(() => {
-    if (searchQuery) {
-      setCurrentPage(1);
-    }
-  }, [searchQuery]);
-
-  // Chỉ quản lý pagination trong URL param
   useEffect(() => {
     const currentParams = new URLSearchParams(window.location.search);
 
@@ -53,8 +44,11 @@ export function TableCurrencies({ searchQuery }) {
   }, [currentPage]);
 
   useEffect(() => {
+    if (searchQuery) {
+      setCurrentPage(1);
+    }
     setCurrentPage(pageParam);
-  }, [pageParam]);
+  }, [pageParam, searchQuery]);
 
   const startIndex = (currentPage - 1) * rowsPerPage;
   const currentRows = filteredEntries.slice(
