@@ -38,13 +38,21 @@ select {
   padding: 10px;
   border-radius: 5px;
   width: 100%;
-  border: 1px solid #ccc;
   font-size: 16px;
+  border: 1px solid var(--border-color);
 
   background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='12' viewBox='0 0 24 24' width='12' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
   background-repeat: no-repeat;
   background-position: right 10px center;
   background-size: 16px;
+  margin-top: 6px;
+}
+
+select:hover,
+select:focus {
+  box-shadow: 0px 0px 0px 3px rgba(0, 0, 0, 0.2);
+  border-color: var(--border-color);
+  outline: none;
 }
 
 label {
@@ -100,6 +108,18 @@ li {
 .btn-secondary:hover {
   opacity: 90%;
 }
+
+.btn-swap {
+  background-color: var(--primary-color);
+  color: white;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+.btn-swap:hover {
+  transform: rotate(180deg);
+  background-color: var(--primary-color);
+}
+
 .input {
   border-radius: 5px;
   padding: 10px;
@@ -107,6 +127,7 @@ li {
   outline: none;
   transition: all 0.3s ease;
   width: 100%;
+  margin: 6px 0px;
 }
 
 .input:focus,
@@ -119,7 +140,7 @@ li {
 
 .header {
   background-color: var(--secondary-color);
-  padding: 20px;
+  padding: 40px 10px;
   border-radius: 10px;
   text-align: center;
 }
@@ -138,14 +159,13 @@ li {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
-  padding: 20px 0px;
+  padding: 40px 0px;
 }
 
 .convert-card {
   background-color: var(--secondary-color);
-  padding: 32px;
+  padding: 40px;
   border-radius: 10px;
-  margin: 20px 0;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -181,17 +201,21 @@ li {
   gap: 10px;
   border-radius: 5px;
   border: 1px solid var(--border-color);
-  max-width: 500px;
   width: 30%;
-  padding: 10px;
+  padding: 0px 10px;
   margin: 20px 0;
-  position: relative;
+}
+.search-form:hover,
+.search-form:active {
+  box-shadow: 0px 0px 0px 3px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
 }
 
 .search-form input {
   border: none;
   outline: none;
   flex: 1;
+  padding: 14px 0px;
 }
 
 .clear-btn {
@@ -221,6 +245,9 @@ li {
 
 .table-description {
   text-align: center;
+  font-size: 14px;
+  padding: 10px 0px;
+  font-style: italic;
 }
 
 .pagination {
@@ -228,26 +255,31 @@ li {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  padding: 10px 0;
+  padding: 32px 0;
 }
 
 .popular-card {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  padding: 20px 0px;
 }
 
 .popular-list {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 10px;
 }
 
 .popular-item {
   border: solid 1px var(--border-color);
   padding: 10px;
   border-radius: 5px;
+}
+
+.popular-item:hover {
+  border-left: solid 5px var(--primary-color);
+  transition: all 0.1s ease-in-out;
+  cursor: pointer;
 }
 
 .result-convert {
@@ -270,4 +302,35 @@ li {
   display: flex;
   gap: 10px;
   align-items: center;
+}
+
+@media (max-width: 768px) {
+  table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+    font-size: 14px;
+  }
+
+  .header {
+    padding: 20px 10px;
+  }
+
+  .convert-section {
+    grid-template-columns: 1fr;
+  }
+
+  .search-form {
+    width: 100%;
+  }
+
+  .popular-list {
+    flex-direction: column;
+  }
+
+  .pagination {
+    gap: 0;
+    font-size: 14px;
+  }
 }
